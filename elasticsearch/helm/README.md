@@ -1,0 +1,27 @@
+>> Original project can be found in [https://github.com/elastic/helm-charts/tree/master/elasticsearch/examples/docker-for-mac](https://github.com/elastic/helm-charts/tree/master/elasticsearch/examples/docker-for-mac).
+
+# Docker for Mac
+
+This example deploy a 3 nodes Elasticsearch 8.0.0-SNAPSHOT cluster on [Docker for Mac][]
+using [custom values][].
+
+Note that this configuration should be used for test only and isn't recommended
+for production.
+
+
+## Usage
+
+* Deploy Elasticsearch chart with the default values: `make install`
+
+Maybe it might be necessary to add elastic repo before the command above: `helm repo add elastic https://helm.elastic.co`.
+
+* You can now setup a port forward to query Elasticsearch API:
+
+  ```
+  kubectl port-forward svc/elasticsearch-master 9200
+  curl localhost:9200/_cat/indices
+  ```
+
+## Original values
+
+[values.yaml](values.yaml) contains the original values used by the Chart.
